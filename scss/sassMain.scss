@@ -1,0 +1,409 @@
+$siteWidth: 60rem;
+
+$fontSize: 1em;
+$lineHeight: 1.375em;
+$fontFamily: Tahoma, Geneva, sans-serif;
+
+$baseColor: #99adf7;
+$tardisBlue: #003B6F;
+
+$headerFont: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$headerBkgnd: $baseColor;
+$backgroundColorHover: lighten($baseColor, 5%);
+
+$textColorPrimary: #333;
+$textColorHover: black;
+$textColorH: darken($baseColor, 10%);
+
+/* ==========================================================================
+   Primary Elements
+   ========================================================================== */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+ }
+
+html, body {
+    height: 100%;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    color: $textColorPrimary;
+}
+
+h1, h2, h3, h4 {
+    color: $textColorH;
+    font-family: $headerFont;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.05em;
+}
+
+h2 {
+    font-size: 2.25rem;
+    line-height: 1.25em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+h3 {
+    font-size: 1.75rem;
+    line-height: 1.25em;
+}
+
+h4 {
+    font-size: 1.125rem;
+    line-height: 1.22222222em;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 2em;
+    font-size: 3em;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header {
+    background: $headerBkgnd;
+    font-family: $headerFont;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.mainNav {
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+    }
+    a{
+        padding: 1.25rem 1rem;
+        font-size: 1.6rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $textColorPrimary;
+        &:hover, &:focus {
+            background: $backgroundColorHover;
+            color: $textColorHover;
+        }
+    }
+    
+}
+
+/* ==========================================================================
+   Flex Classes
+   ========================================================================== */
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    min-height: 100%;
+}
+
+.row.reverse {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-flex-wrap: row-reverse;
+    -ms-flex-wrap: row-reverse;
+    flex-wrap: row-reverse;
+}
+
+.column {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.column.reverse {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-flex-wrap: column-reverse;
+    -ms-flex-wrap: column-reverse;
+    flex-wrap: column-reverse;
+}
+
+.start {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.top {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.middle {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.bottom {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.around {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.first {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+}
+
+.last {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.flex1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.width30 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+}
+
+.width100 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+}
+
+/* ==========================================================================
+   Main Element
+   ========================================================================== */
+
+.image100 {
+    width: 100%;
+}
+
+.maxWidth {
+    max-width: $siteWidth;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+	transform-style: preserve-3d;
+    padding: 2rem;
+    background-color: transparent;
+
+	/* flip the pane when hovered */
+	&:hover .back {
+		transform: rotateY(0deg);
+	}
+	&:hover .front {
+	    transform: rotateY(180deg);
+	}
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 100%;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(-180deg);
+}
+
+/* 
+	Some vertical flip updates 
+*/
+.vertical .flip-container {
+	position: relative;
+}
+
+.vertical .back {
+    transform: rotateX(180deg);
+}
+
+.vertical.flip-container:hover .back {
+    transform: rotateX(0deg);
+}
+
+.vertical.flip-container:hover .front {
+    transform: rotateX(180deg);
+}
+
+.button {
+    border-top: 1px solid $baseColor;
+    background: $baseColor;
+    background: -webkit-gradient(linear, left top, left bottom, from(darken($baseColor, 3%)), to(lighten($baseColor, 3%)));
+    background: -webkit-linear-gradient(top, darken($baseColor, 3%), lighten($baseColor, 3%));
+    background: -moz-linear-gradient(top, darken($baseColor, 3%), lighten($baseColor, 3%));
+    background: -ms-linear-gradient(top, darken($baseColor, 3%), lighten($baseColor, 3%));
+    background: -o-linear-gradient(top, darken($baseColor, 3%), lighten($baseColor, 3%));
+    padding: 11px 22px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.button:hover {
+    border-top-color: darken($baseColor, 5%);
+    background: darken($baseColor, 3%);
+}
+
+.button:active {
+    border-top-color: darken($baseColor, 5%);
+    background: darken($baseColor, 3%);
+}
+
+.paddingTopButton {
+    padding-top: .75rem;
+}
+
+.marginRight {
+    margin-right: .75rem;
+}
+
+.marginTop {
+    margin-top: 1rem;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    text-align: center;
+}
+
