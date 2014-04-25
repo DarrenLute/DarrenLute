@@ -16,6 +16,20 @@ $textColorHover: black;
 $textColorH: darken($baseColor, 10%);
 
 /* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+@mixin breakpoint($point) {
+    @if $point == 860 {
+        @media (max-width: 54em) { @content; }
+    }
+    @else if $point == 620 {
+        @media (max-width: 39em) { @content; }
+    }
+}
+
+
+/* ==========================================================================
    Primary Elements
    ========================================================================== */
 
@@ -137,21 +151,21 @@ header {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     min-height: 100%;
-}
-
-.row.reverse {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-flex-wrap: row-reverse;
-    -ms-flex-wrap: row-reverse;
-    flex-wrap: row-reverse;
+    
+    .reverse {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -webkit-flex-wrap: row-reverse;
+        -ms-flex-wrap: row-reverse;
+        flex-wrap: row-reverse;
+    }
 }
 
 .column {
@@ -164,21 +178,21 @@ header {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-}
 
-.column.reverse {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    -webkit-flex-wrap: column-reverse;
-    -ms-flex-wrap: column-reverse;
-    flex-wrap: column-reverse;
+    .reverse {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        -webkit-flex-wrap: column-reverse;
+        -ms-flex-wrap: column-reverse;
+        flex-wrap: column-reverse;
+    }
 }
 
 .start {
@@ -262,6 +276,9 @@ header {
     -webkit-flex: 0 0 30%;
     -ms-flex: 0 0 30%;
     flex: 0 0 30%;
+    @include breakpoint (860) {
+        display: none;
+    }
 }
 
 .width100 {
@@ -387,6 +404,10 @@ header {
     padding-top: .75rem;
 }
 
+.paddingLR {
+    padding: 0 .75rem;
+}
+
 .marginRight {
     margin-right: .75rem;
 }
@@ -405,5 +426,7 @@ header {
 
 footer {
     text-align: center;
+    @include breakpoint (860) {
+        display: none;
+    }
 }
-
