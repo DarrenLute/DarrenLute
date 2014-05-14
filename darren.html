@@ -10,43 +10,47 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/sassMain.css">
+        <link rel="stylesheet" href="css/sassMain01.css">
     </head>
     <body ng-app="dlApp" class="">
         <!--[if lte IE 9]>
             <p class="browsehappy">This site doesn't work with older versions of Internet Explorer. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <header class="">
-            <!-- logo -->
-
-
-            <!-- navigation menu -->
-            <nav role='navigation' class="mainNav">
-                <ul>
-                    <li><a href="index.html"><img class="logo" src="images/logo2.png" /></a></li>
-                    <li><a id="btnCurrent" href="currentWork.html">Current Work</a></li>
-                    <li><a id="btnDarren" href="darren.html">Darren</a></li>
-                </ul>
-            </nav>
+        <header class="navigation">
+            <div class="menu-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/whiteLogo.png" alt="Logo">
+                </a>
+                <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+                <div class="nav">
+                    <ul id="navigation-menu">
+                        <li><a href="index.html">Portfolio</a>
+                        </li>
+                        <li><a href="currentWork.html">Current Project</a>
+                        </li>
+                        <li><a href="https://github.com/DarrenLute/DarrenLute" target="_blank">GitHub Repository</a>
+                        </li>
+                        <li><a href="darren.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
 
-        <main class="row center">
-                     
-            <section class="row center width100 maxWidth marginTop">
-                <div class="column">
-                    <h2 class="textCenter">About Me</h2>
-                    <div class="paddingLR">
-                        <p>Darren is a front-end developer with a strong analytical and curious mind that is great at problem solving. Along with the standard skills needed for front-end development (HTML, CSS, Javascript), he has a strong interest in responsive and interactive programming. He also has experience working with Wordpress, jQuery, AngularJS, SASS, MySQL, PHP and Photoshop/GIMP. </p>
-                        <p>To get in contact, feel free to send an email to <a href="mailto:DarrenLute@gmail.com">DarrenLute@gmail.com</a></p>
-                    </div>
-                </div>
+        <main>
+            <section class="aboutSection padding1">       
+                <h1>About Me</h1>
+                <figure>
+                    <img alt="Darren Lute Head Shot" src="images/DarrenLute.jpg">
+                </figure>
+                <p>Darren is a front-end developer with a mind that is both deeply analytical and intensely curious - a combination that makes him a top-notch programming problem solver. Along with the standard skills needed for front-end development (HTML, CSS, Javascript), he has a strong interest in responsive and interactive programming. He also has experience working with Wordpress, jQuery, AngularJS, SASS, MySQL, PHP and Photoshop/GIMP.</p>
+                <p>To get in contact, feel free to send an email to <a href="mailto:DarrenLute@gmail.com">DarrenLute@gmail.com</a></p>    
             </section>
-            
         </main>
         
         <footer>
-            <div class="copyright">Copyright © 2014 Darren Lute</div>
+            <div class="copyright">Copyright © 2014 Darren Lute | <a href="mailto:DarrenLute@gmail.com">Contact Me</a></div>
         </footer>
 
         <!-- Javascript -->

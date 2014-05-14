@@ -3,200 +3,244 @@
 @import "neat/neat";
 @import "bitters/bitters";
 
+$mobile: new-breakpoint(max-width 500px 12);
+
 $primaryColor: #5d76d0;
 $base-accent-color: $primaryColor;
+
+$navigation-background: $primaryColor;
+$navigation-color: transparentize(white, 0.3);
+$navigation-color-hover: white;
+$navigation-height: 60px;
+$navigation-nav-button-background: $base-accent-color;
+$navigation-nav-button-background-hover: lighten($navigation-background, 10);
+$navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20);
+$navigation-search-background: lighten($navigation-background, 5);
+$navigation-search-border: 1px solid darken($navigation-background, 5);
+
+$tab-border-color: none;
+$tab-border: 1px solid $tab-border-color;
+$tab-border-radius: $base-border-radius;
+$tab-content-background: none;
+$tab-active-color: lighten($primaryColor, 35);
+$tab-inactive-color: none;
+$vertical-tabs-height: em(300);
+$vertical-tab-mode: $medium-screen;
+
+$mainArticles: 4;
+
+/* ==========================================================================
+   Site
+   ========================================================================== */
+
+* {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+h1, h2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
 
 
 /* ==========================================================================
    Header
    ========================================================================== */
 
-
 header.navigation {
-  $navigation-background: $primaryColor;
-  $navigation-color: transparentize(white, 0.3);
-  $navigation-color-hover: white;
-  $navigation-height: 60px;
-  $navigation-nav-button-background: $base-accent-color;
-  $navigation-nav-button-background-hover: lighten($navigation-background, 10);
-  $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20);
-  $navigation-search-background: lighten($navigation-background, 5);
-  $navigation-search-border: 1px solid darken($navigation-background, 5);
 
-  background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
-  font-family: $sans-serif;
-  height: $navigation-height;
-  width: 100%;
-  z-index: 999;
-
-  .menu-wrapper {
-    @include outer-container;
-    position: relative;
-    z-index: 9999;
-  }
-
-  .logo {
-    float: left;    
-    max-height: $navigation-height;
-    padding-left: 1em;
-    padding-right: 2em;
-
-    img {
-      max-height: $navigation-height;
-      padding: .8em 0;
-    }
-  }
-
-  .navigation-menu-button {
-    color: $navigation-color;
-    cursor: pointer;
-    display: block;
-    float: right;
-    font-family: $sans-serif;
-    font-weight: 700;
-    line-height: $navigation-height;
-    margin: 0;
-    padding-right: 1em;
-    text-transform: uppercase;
-
-    @include media ($large-screen) {
-      display: none;
-    }
-
-    &:hover {
-      color: $navigation-color-hover;
-    }
-  }
-
-  .nav {
-    @include media ($large-screen) {
-      float: left;
-    }
-  }
-
-  ul#navigation-menu {    
-    clear: both;
-    -webkit-transform-style: preserve-3d; // stop webkit flicker
-    display: none;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0;
+    background-color: $navigation-background;
+    border-bottom: 1px solid darken($navigation-background, 10);
+    height: $navigation-height;
     width: 100%;
-    z-index: 9999;
+    z-index: 999;
 
-    @include media ($large-screen) {
-      display: inline;
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  ul li {
-    background: $navigation-background;
-    display: block;
-    line-height: $navigation-height;
-    overflow: hidden;
-    padding-right: .8em;
-    text-align: right;
-    width: 100%;
-    z-index: 9999;
-
-    @include media ($large-screen) {
-      background: transparent;
-      display: inline;
-      line-height: $navigation-height;
-      padding-right: 2em;
-      text-decoration: none;
-      width: auto;
+    .menu-wrapper {
+        @include outer-container;
+        position: relative;
+        z-index: 9999;
     }
 
-    a {
-      font-weight: 400;
-      color: $navigation-color;
-
-      &:hover {
-        color: $navigation-color-hover;
-      }
-    }
-  }
-
-  .sign-up {
-    @include media ($large-screen) {
-      @include position(absolute, 0px 0px 0 0);
-      padding-right: 1em;
-
-      a {
-        @include transition (all 0.2s ease-in-out);
-        background: $navigation-nav-button-background;
-        border-radius: $base-border-radius; 
-        color: white;
-        font-size: .8em;  
-        font-weight: 800;
-        padding: .6em 1em;
-        text-transform: uppercase;
-
-        &:hover {
-          background: lighten($navigation-nav-button-background, 10);
-        }
-      }
-    }
-  }
-
-  li.navigation-search-bar {
-    display: none;
-
-    @include media($large-screen) {
-      @include position(absolute, 0px 76px 0 0);
-      display: inline-block;
-      line-height: 0 !important;
-      padding: 13px 30px; // this to get around Firefox/Opera line-height "bug"
-    }
-  }
-
-  .search-bar {
-    $search-bar-border-color: $base-border-color;
-    $search-bar-border: 1px solid $search-bar-border-color;
-    $search-bar-background: lighten($search-bar-border-color, 10);
-
-    width: 19em;
-    position: relative; 
-    display: inline-block;
-
-    input {
-      @include box-sizing(border-box);
-      display: block;
-    }
-
-    .search-and-submit {
-      position: relative;
-
-      input[type=search] {
-        background: $navigation-search-background;
-        border: $navigation-search-border;
-        padding: .6em .8em;
-        font-size: .9em;
-        font-style: italic;
-        color: $navigation-color;
-        border-radius: $base-border-radius * 2;
-        margin: 0;
-      }
-
-      button[type=submit] {
-        @include button(simple, lighten($navigation-search-background, 10));
-        @include position(absolute, 0.3em 0.3em 0.3em 0);
-        outline: none;
-        padding: 5px 15px;
+    .logo {
+        float: left;    
+        max-height: $navigation-height;
+        padding-left: 1em;
+        padding-right: 2em;
 
         img {
-          height: 12px;
-          opacity: .7;
+            max-height: $navigation-height;
+            padding: .8em 0;
         }
-      }
+        
+        @include media($mobile) {
+            display: none;
+        }
     }
-  }
+
+    .navigation-menu-button {
+        color: $navigation-color;
+        cursor: pointer;
+        display: block;
+        float: right;
+        font-family: $sans-serif;
+        font-weight: 700;
+        line-height: $navigation-height;
+        margin: 0;
+        padding-right: 1em;
+        text-transform: uppercase;
+
+        @include media ($large-screen) {
+            display: none;
+        }
+
+        &:hover {
+            color: $navigation-color-hover;
+        }
+    }
+
+    .nav {
+        @include media ($large-screen) {
+            float: right;
+        }
+    }
+
+    ul#navigation-menu {    
+        clear: both;
+        -webkit-transform-style: preserve-3d; // stop webkit flicker
+        display: none;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+        z-index: 9999;
+
+        @include media ($large-screen) {
+            display: inline;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    ul li {
+        background: $navigation-background;
+        display: block;
+        line-height: $navigation-height;
+        overflow: hidden;
+        padding-right: .8em;
+        text-align: right;
+        width: 100%;
+        z-index: 9999;
+
+        @include media ($large-screen) {
+            background: transparent;
+            display: inline;
+            line-height: $navigation-height;
+            padding-right: 2em;
+            text-decoration: none;
+            width: auto;
+        }
+
+        a {
+            font-weight: 400;
+            color: $navigation-color;
+
+            &:hover {
+                color: $navigation-color-hover;
+            }
+        }
+    }
+
+    .sign-up {
+        @include media ($large-screen) {
+            @include position(absolute, 0px 0px 0 0);
+            padding-right: 1em;
+
+            a {
+                @include transition (all 0.2s ease-in-out);
+                background: $navigation-nav-button-background;
+                border-radius: $base-border-radius; 
+                color: white;
+                font-size: .8em;  
+                font-weight: 800;
+                padding: .6em 1em;
+                text-transform: uppercase;
+
+                &:hover {
+                    background: lighten($navigation-nav-button-background, 10);
+                }
+            }
+        }
+    }
+
+    li.navigation-search-bar {
+        display: none;
+
+        @include media($large-screen) {
+            @include position(absolute, 0px 76px 0 0);
+            display: inline-block;
+            line-height: 0 !important;
+            padding: 13px 30px; // this to get around Firefox/Opera line-height "bug"
+        }
+    }
+
+    .search-bar {
+        $search-bar-border-color: $base-border-color;
+        $search-bar-border: 1px solid $search-bar-border-color;
+        $search-bar-background: lighten($search-bar-border-color, 10);
+
+        width: 19em;
+        position: relative; 
+        display: inline-block;
+
+        input {
+            @include box-sizing(border-box);
+            display: block;
+        }
+
+        .search-and-submit {
+            position: relative;
+
+            input[type=search] {
+                background: $navigation-search-background;
+                border: $navigation-search-border;
+                padding: .6em .8em;
+                font-size: .9em;
+                font-style: italic;
+                color: $navigation-color;
+                border-radius: $base-border-radius * 2;
+                margin: 0;
+            }
+
+            button[type=submit] {
+                @include button(simple, lighten($navigation-search-background, 10));
+                @include position(absolute, 0.3em 0.3em 0.3em 0);
+                outline: none;
+                padding: 5px 15px;
+
+                img {
+                    height: 12px;
+                    opacity: .7;
+                }
+            }
+        }
+    }
 }
 
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+section {
+    @include outer-container;
+    
+    &.padding1 {
+        padding: 1em;
+    }
+    
+    &.padding2 {
+        padding: .2em;
+    }
+}
 
 /* ==========================================================================
    Main: Tabs
@@ -204,103 +248,95 @@ header.navigation {
 
 
 .vertical-tabs-container { // small screens: accordion
-  $tab-border-color: none;
-  $tab-border: 1px solid $tab-border-color;
-  $tab-border-radius: $base-border-radius;
-  $tab-content-background: none;
-  $tab-active-color: lighten($primaryColor, 35);
-  $tab-inactive-color: none;
-  $vertical-tabs-height: em(300);
-  $vertical-tab-mode: $medium-screen;
 
-  @include clearfix;
-  border-radius: $tab-border-radius;
-  border: $tab-border;
-  margin-bottom: $base-line-height;
-  overflow: hidden;
+    @include clearfix;
+    border-radius: $tab-border-radius;
+    border: $tab-border;
+    margin-bottom: $base-line-height;
+    overflow: hidden;
 
-  .vertical-tabs {
-    display: none;
-    text-align: center;
-    margin: 3em 0;
+    .vertical-tabs {
+        display: none;
+        text-align: center;
+        margin: 3em 0;
 
-    @include media($vertical-tab-mode) {
-      background-color: $tab-inactive-color;
-      display: inline;
-      float: right;
-      width: 20%;
-    }
-  }
-
-  .vertical-tab {
-    @include media($vertical-tab-mode) {
-      border-bottom: $tab-border;
-      display: block;
-      font-weight: bold;
-      margin-right: -1px;
-      padding: $base-line-height/2 $gutter/2;
-
-      &.is-active {
-        background-color: $tab-active-color;
-        margin-right: -1px;
-      }
-    }
-  }
-
-  .vertical-tab:focus {
-    outline: none; 
-  }
-
-  .vertical-tab-content-container {
-    display: block;
-    margin: 0 auto;
-
-    & a:focus { 
-      outline: none; 
+        @include media($vertical-tab-mode) {
+            background-color: $tab-inactive-color;
+            display: inline;
+            float: right;
+            width: 20%;
+        }
     }
 
-    @include media($vertical-tab-mode) {
-      @include inline-block;
-      @include size(80% $vertical-tabs-height);
-      background-color: $tab-content-background;
-    }
-  }
+    .vertical-tab {
+        @include media($vertical-tab-mode) {
+            border-bottom: $tab-border;
+            display: block;
+            font-weight: bold;
+            margin-right: -1px;
+            padding: $base-line-height/2 $gutter/2;
 
-  .vertical-tab-content {
-    background-color: $tab-content-background;
-    padding: $base-line-height $gutter;
-
-    @include media($vertical-tab-mode) {
-      border: none;
-      display: none;
-    }
-  }
-
-  .vertical-tab-accordion-heading {
-    background-color: $tab-inactive-color;
-    border-top: $tab-border;
-    cursor: pointer;
-    display: block;
-    font-weight: bold;
-    padding: $base-line-height/2 $gutter/2;
-
-    &:hover {
-      color: $base-accent-color;
+            &.is-active {
+                background-color: $tab-active-color;
+                margin-right: -1px;
+            }
+        }
     }
 
-    &:first-child {
-      border-top: none;
+    .vertical-tab:focus {
+        outline: none; 
     }
 
-    &.is-active {
-      background: $tab-active-color;
-      border-bottom: none;
+    .vertical-tab-content-container {
+        display: block;
+        margin: 0 auto;
+
+        & a:focus { 
+            outline: none; 
+        }
+
+        @include media($vertical-tab-mode) {
+            @include inline-block;
+            @include size(80% $vertical-tabs-height);
+            background-color: $tab-content-background;
+        }
     }
 
-    @include media($vertical-tab-mode) {
-      display: none;
+    .vertical-tab-content {
+        background-color: $tab-content-background;
+        padding: $base-line-height $gutter;
+
+        @include media($vertical-tab-mode) {
+            border: none;
+            display: none;
+        }
     }
-  }
+
+    .vertical-tab-accordion-heading {
+        background-color: $tab-inactive-color;
+        border-top: $tab-border;
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        padding: $base-line-height/2 $gutter/2;
+
+        &:hover {
+            color: $base-accent-color;
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &.is-active {
+            background: $tab-active-color;
+            border-bottom: none;
+        }
+
+        @include media($vertical-tab-mode) {
+            display: none;
+        }
+    }
 }
 
 /* ==========================================================================
@@ -308,16 +344,214 @@ header.navigation {
    ========================================================================== */
 
 main {
-    @include outer-container;
-    
-    h1 {
-        padding: .5em 0;
-    }
     
     h2 {
         padding: .2em 0;
+        color: $primaryColor;
+    }
+    
+    article:nth-child(1) header {
+        zbackground-image: url('/images/A1.jpg');
+        background-image: url('/images/B1.jpg');
+        background-position: left;
+        background-repeat: no-repeat;
+        
+        @include media($mobile) {
+            background-image: none;
+        }
+    }
+    
+    article:nth-child(2) header {
+        zbackground-image: url('/images/A2.jpg');
+        background-image: url('/images/B2.jpg');
+        background-position: left;
+        background-repeat: no-repeat;
+        
+        @include media($mobile) {
+            background-image: none;
+        }
+    }
+    
+    article:nth-child(3) header {
+        zbackground-image: url('/images/A3.jpg');
+        background-image: url('/images/B3.jpg');
+        background-position: left;
+        background-repeat: no-repeat;
+        
+        @include media($mobile) {
+            background-image: none;
+        }
+    }
+    
+    article:nth-child(4) header {
+        zbackground-image: url('/images/A4.jpg');
+        background-image: url('/images/B4.jpg');
+        background-position: left;
+        background-repeat: no-repeat;
+        
+        @include media($mobile) {
+            background-image: none;
+        }
+    }
+    
+//    $gradientHolder: white;
+//    
+//    @for $i from 1 through $mainArticles {
+//        article:nth-child(#{$i}) header {
+//            @include linear-gradient($gradientHolder, lighten($gradientHolder, 10), $fallback: $primaryColor);
+//        }
+//        $gradientHolder: lighten($gradientHolder, 3);
+//    }
+    
+}
+
+/* ==========================================================================
+   Article 
+   ========================================================================== */
+
+/* ==========================================================================
+   Article: Card Flip
+   ========================================================================== */
+
+//<article>
+//    <header>
+//        <h1>...</h1>
+//    </header>
+//    <div class="body">
+//        <figure>
+//            <img alt="DarrenLute.com Thumbnail" src="images/DarrenLuteMockup.png">
+//        </figure>
+//        <div class="text">
+//            <p>...</p>
+//            
+//        </div>
+//    </div>
+//</article>
+
+article {
+    @include outer-container;
+    height: 20em;
+    position: relative;
+    
+    @include media($mobile) {
+        height: 31em;
+    }
+    
+    &:hover header {
+        z-index: 1;
+        @include transform(rotateX(180deg));
+    }
+
+    &:hover .body {
+        z-index: 2;   
+        @include transform(rotateX(0deg));
+    }
+
+    header, .body {
+        width: 100%;
+        height: 100%;
+        @include transition (all 1.0s);
+        @include backface-visibility(hidden);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    header {
+        z-index: 2;
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(flex-end);
+        @include media($mobile) {
+            @include justify-content(center);
+        }
+        
+        h1 {
+            font-size: 4em;
+            margin-right: .5em;
+            @include media($mobile) {
+                font-size: 2.2em;
+                padding: 1em;
+                margin-right: 0;
+            }
+            
+            color: $primaryColor;
+            //font-family: Georgia, serif;
+            font-style: italic;
+        }
+    }
+
+    .body {
+        z-index: 1; 
+        @include transform(rotateX(-180deg));
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(center);
+        
+        @include media($mobile) {
+            padding: 1em;
+        }
+
+        figure {
+            @include span-columns(3);
+            
+            @include media($mobile) {
+                @include span-columns(0);
+                display: none;
+            }
+        }
+
+        .text {
+            @include span-columns(9);
+            
+            @include media($mobile) {
+                @include span-columns(12);
+            }
+        }
+    }
+ 
+}
+
+/* ==========================================================================
+   About page
+   ========================================================================== */
+
+.aboutSection {
+    
+    h1 {
+        margin-bottom: 1rem;
+    }
+    figure {
+        width: 30%;
+        float: left;
+        margin: 0 1em;
+    }
+    
+}
+
+/* ==========================================================================
+   buttons
+   ========================================================================== */
+
+.button {
+    @include button(pill, $primaryColor);
+    
+    &:hover {
+        color: white;
+        border-top-color: darken($primaryColor, 5%);
+        background: darken($primaryColor, 3%);
+    }
+    
+    &:active {
+        border-top-color: darken($primaryColor, 5%);
+        background: darken($primaryColor, 3%);
     }
 }
+
+.paddingTopButton {
+    padding: .75rem 0;
+}
+
 
 /* ==========================================================================
    Footer
@@ -326,4 +560,5 @@ main {
 footer {
     @include outer-container;
     text-align: center;
+    font-size: .6em;
 }

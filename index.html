@@ -10,100 +10,127 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/sassMain.css">
+        <link rel="stylesheet" href="css/sassMain01.css">
     </head>
     <body ng-app="dlApp" class="">
-        <!--[if lte IE 9]>
+        <!--[if lte IE 10]>
             <p class="browsehappy">This site doesn't work with older versions of Internet Explorer. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <header class="">
-            <!-- logo -->
-
-
-            <!-- navigation menu -->
-            <nav role='navigation' class="mainNav">
-                <ul>
-                    <li><a href="index.html"><img class="logo" src="images/logo2.png" /></a></li>
-                    <li><a id="btnCurrent" href="currentWork.html">Current Work</a></li>
-                    <li><a id="btnDarren" href="darren.html">Darren</a></li>
-                </ul>
-            </nav>
+        <header class="navigation">
+            <div class="menu-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/whiteLogo.png" alt="Logo">
+                </a>
+                <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+                <div class="nav">
+                    <ul id="navigation-menu">
+                        <li><a href="index.html">Portfolio</a>
+                        </li>
+                        <li><a href="currentWork.html">Current Project</a>
+                        </li>
+                        <li><a href="https://github.com/DarrenLute/DarrenLute" target="_blank">GitHub Repository</a>
+                        </li>
+                        <li><a href="darren.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
 
-        <main class="row center">
+        <main>
             
-            <section class="flip-container row reverse maxWidth" ontouchstart="this.classList.toggle('hover');">
-                <div class="width30">
-                    <img src="images/DarrenLuteMockup.png" class="image100">
-                </div>
-                <div class="flex1 row column">
-                    <h2>DarrenLute.com</h2>
-                    <div class="flipper">
-                        <div class="front">
-                            <div class="">         
-                                <p>DarrenLute.com V2. This is the second version of this site. My goal was to clean it up a bit, get rid of the clutter and streamline the design. The site looks and feels much better than V1 already. </p>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="">
-                                <p>Still need to finish adding content, reduce the file size on the images, and then make sure that it works as well on mobile as it does the desktop. The site uses AngularJS, Sass and Flexbox.</p>
-                                <div class="paddingTopButton"><a class="button" href="https://github.com/DarrenLute/DarrenLute" target="_blank">Visit my GitHub Repository</a></div>
-                            </div>
-                        </div>
+            <article>
+                <header>
+                    <h1>The Game District</h1>
+                </header>
+                <div class="body">
+                    <figure>
+                        <img alt="The Game District Thumbnail" src="images/Placeholder.png">
+                    </figure>
+                    <div class="text">
+                        <p>The Game District is my current project. I am starting from scratch to create a site dedicated to managing campaigns for those running RPGs (Role Playing Games).  I am currently in the process of creating design documents for the site.</p>
+
+                        <p><strong><em>The goal:</em></strong> Create an online space where people can relax and play rather than spending time managing the mechanics of the game. The software will do what it does best - manipulate the data and manage the rules - leaving the group to focus on the story.</p>
+
+                        <p><strong><em>The next step:</em></strong> Creating the Customer Journey Maps.</p>
+                        <div class="paddingTopButton"><a class="button" href="http://darrenlute.com/currentWork.html" target="_blank">The Game District Design Doc</a></div>
                     </div>
                 </div>
-            </section>
+            </article>
             
-            <section class="flip-container row maxWidth" ontouchstart="this.classList.toggle('hover');">
-                <div class="width30 marginRight">
-                    <img src="images/CrazyHairMockup.png" class="image100">
-                </div>
-                <div class="flex1 row column">
-                    <h2>Crazy Hair Publishing</h2>
-                    <div class="flipper">
-                        <div class="front">
-                            <div class="">         
-                                <p>It is a common practice among self published authors, to create their own publishing presence. It makes it easier to get ISBN numbers for their books and allows them to make use of a wider variety of distribution avenues.</p>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="">
-                                <p>The site needed to be a place that Su could sell her work and be a platform to launch future opportunities that her writing affords her. It also needed to be something familiar that she could easily upkeep herself. I chose a Wordpress site.</p>
-                                <div class="paddingTopButton"><a class="button" href="http://www.CrazyHairPublishing.com" target="_blank">Visit CrazyHairPublishing.com</a></div>
-                            </div>
-                        </div>
+            <article>
+                <header>
+                    <h1>DarrenLute.com</h1>
+                </header>
+                <div class="body">
+                    <figure>
+                        <img alt="DarrenLute.com Thumbnail" src="images/DarrenLuteMockup.png">
+                    </figure>
+                    <div class="text">
+                        <p>DarrenLute.com V2.1. This is the second version of this portfolio site.</p>
+                        <p><strong><em>The goal:</em></strong> Get rid of the clutter of the original site and streamline the design, while showcasing my programming skills.</p>
+
+                        <p>In addition to the normal CSS and HTML, the site was created using Sass (Bourbon and Neat) and Flexbox.</p>
+
+                        <p><strong><em>The next step:</em></strong> Add AngularJS navigation and SEO.</p>
+                        <div class="paddingTopButton"><a class="button" href="https://github.com/DarrenLute/DarrenLute" target="_blank">Visit my GitHub Repository</a></div>
                     </div>
                 </div>
-            </section>
+            </article>
             
-            <section class="flip-container row reverse maxWidth" ontouchstart="this.classList.toggle('hover');">
-                <div class="width30">
-                    <img src="images/SusanLuteMockup.png" class="image100">
-                </div>
-                <div class="flex1 row column">
-                    <h2>Susan Lute</h2>
-                    <div class="flipper">
-                        <div class="front">
-                            <div class="">  
-                                <p>Su needed a site that was easy to upkeep, would showcase her books, and allow her to build her brand.</p>
-                                <p><em>"What I like about working with Darren Lute is his ability to take my ideas and bring them to life. The websites he's designed for me are innovative, avant-garde, user-friendly, and fun. I highly recommend Darren if you're looking for someone who thinks outside the box, and is easy to work with."</em> ~ Susan Lute, Novelist</p>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="">
-                                <p>Because of the need for a blog and easy upkeep, I chose to use Wordpress for this site.</p>
-                                <div class="paddingTopButton"><a class="button" href="http://www.SusanLute.com" target="_blank">Visit SusanLute.com</a></div>
-                            </div>
-                        </div>
+            <article>
+                <header>
+                    <h1>Crazy Hair Publishing</h1>
+                </header>
+                <div class="body">
+                    <figure>
+                        <img alt="DarrenLute.com Thumbnail" src="images/CrazyHairMockup.png">
+                    </figure>
+                    <div class="text">
+                        <p>In the dynamic new world of publishing, authors seeking to enhance their presence often become their own publishers.  By developing a unique publisher identity, authors gain credibility in the marketplace and can take advantage of a wider range of distribution options.</p>
+                        <p><strong><em>The goal:</em></strong> Create a site to serve as a platform for the author’s publishing company.  The site needed to drive book sales as well as serving as a launch pad for future writing projects. The site was created using Wordpress because of the client’s desire to maintain the site herself.</p>
+                        <div class="paddingTopButton"><a class="button" href="http://www.CrazyHairPublishing.com" target="_blank">Visit CrazyHairPublishing.com</a></div>
                     </div>
                 </div>
-            </section>
+            </article>
+            
+            <article>
+                <header>
+                    <h1>Susan Lute</h1>
+                </header>
+                <div class="body">
+                    <figure>
+                        <img alt="DarrenLute.com Thumbnail" src="images/SusanLuteMockup.png">
+                    </figure>
+                    <div class="text">
+                        <p><em>"What I like about working with Darren is his ability to take my ideas and bring them to life. The websites he's designed for me are innovative, avant-garde, user-friendly, and fun. I highly recommend Darren if you're looking for someone who thinks outside the box, and is easy to work with."</em> ~ Susan Lute, Novelist</p>
+                        <p><strong><em>The goal:</em></strong> Create an author site that was easy to upkeep, would showcase the clients books, and allow her to build her brand and a more personal relationship with readers.  The site was created using Wordpress because of the client’s desire to include a blogging component and maintain the site herself.</p>
+                        <div class="paddingTopButton"><a class="button" href="http://www.SusanLute.com" target="_blank">Visit SusanLute.com</a></div>
+                    </div>
+                </div>
+            </article>
+            
+            <article>
+                <header>
+                    <h1>3D Interface</h1>
+                </header>
+                <div class="body">
+                    <figure>
+                        <img alt="DarrenLute.com Thumbnail" src="images/3DTestMockup.png">
+                    </figure>
+                    <div class="text">
+                        <p>I was selected by Professor Thomas Wasson to develop this sample site because of my interest in and exploration of experimental navigation during my coursework. The site is best viewed in a webkit browser.</p>
+                        <p><strong><em>The goal:</em></strong> Create a sample site with unique navigation and strong interactive elements to showcase the faculty and course offerings of the Digital Media Communications department at Clackamas Community College.</p>
+                        <div class="paddingTopButton"><a class="button" href="http://darrenlute.com/schoolTest/index.html#/overview" target="_blank">Visit the 3D interface</a></div>
+                    </div>
+                </div>
+            </article>
             
         </main>
         
         <footer>
-            <div class="copyright">Copyright © 2014 Darren Lute</div>
+            <div class="copyright">Copyright © 2014 Darren Lute | <a href="mailto:DarrenLute@gmail.com">Contact Me</a></div>
         </footer>
 
         <!-- Javascript -->
